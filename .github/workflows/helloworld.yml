@@ -9,10 +9,6 @@ jobs:
       - name: Hello Worlding
         run: |
           docker build -t  helloworld-app . 
-      - name: Azure container scan
-        uses: Azure/container-scan@v0
-        with:
-          image-name: helloworld-app
       - name: Publish to Azure Container Registry
         uses: Azure/docker-login@v1
         with:
