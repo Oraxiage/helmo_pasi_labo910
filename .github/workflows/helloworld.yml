@@ -15,4 +15,4 @@ jobs:
           login-server: ue19containers.azurecr.io
           username: ${{ secrets.ACR_USERNAME }}
           password: ${{ secrets.ACR_PASSWORD }}
-      - run: docker push ue19containers.azurecr.io/helloworld:ue19
+      - run: docker push helloworld-app
