@@ -1,7 +1,7 @@
 name: helloworld app docker build
 on: [push]
 jobs:
-  Explore-GitHub-Actions:
+  Check-and-build-helloworld:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
