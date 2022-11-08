@@ -9,3 +9,14 @@ jobs:
       - name: Hello Worlding
         run: |
           docker build -t  helloworld-app . 
+      - name: Azure container scan
+        uses: Azure/container-scan@v0
+        with:
+          image-name: helloworld-app
+      - name: Publish to Azure Container Registry
+        uses: Azure/docker-login@v1
+        with:
+          login-server: ${{ secrets.ACR_ENDPOINT }}
+          username: ${{ secrets.ACR_USERNAME }}
+          password: ${{ secrets.ACR_PASSWORD }}
+      - run: docker push ${{ secrets.ACR_ENDPOINT }}/helloworld:ue19
