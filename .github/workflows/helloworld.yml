@@ -9,10 +9,11 @@ jobs:
       - name: Hello Worlding
         run: |
           docker build -t  helloworld-app . 
-      - name: Publish to Azure Container Registry
+      - name: Connect to Azure Container Registry
         uses: Azure/docker-login@v1
         with:
           login-server: ue19containers.azurecr.io
           username: ${{ secrets.ACR_USERNAME }}
           password: ${{ secrets.ACR_PASSWORD }}
-      - run: docker push helloworld-app
+      - run: docker tag helloworld-app ue19containers.azurecr.io/helloworld-app
+      - run: docker push ue19containers.azurecr.io/helloworld-app
